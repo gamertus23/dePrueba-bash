@@ -22,7 +22,6 @@ registrarEquipo() {
 	echo "EQUIPO=$nombreEquipo" >> $ARCHIVO
 }
 
-
 registrarPartido() {
 	echo "Ingrese equipo 1"
 	read equipo1
@@ -57,15 +56,32 @@ registrarPartido() {
 }
 
 historial() {
-	grep "PARTIDO" $ARCHIVO | cut -d "=" -f 2
+	partidos=$(grep "PARTIDO" $ARCHIVO)
+
 	if [ -z "$partidos" ]; then
 		echo "No hay partidos registrados"
-	return
+		return
 	fi
+
+	echo $partidos
 }
 
 buscarEquipo() {
-	codigo
+	echo "Ingrese un equipo para buscar"
+	read nombreEquipo
+	if [ -z "$nombreEquipo" ]; then
+		echo "El campo no puede estar vacio"
+		return
+	fi
+
+	resultado=$(grep "EQUIPO=$nombreEquipo" $ARCHIVO)
+
+	if [ -z "$resultado" ]; then
+		echo "El equipo no existe"
+	else
+		echo "El equipo existe"
+	fi
+
 }
 
 cantidadPartidos() {
@@ -93,7 +109,7 @@ do
 	read opcion
 
 
-	case $opcion in 
+	case $opcion in
 		1) listaEquipos ;;
 		2) campeon ;;
 		3) registrarEquipo ;;
