@@ -1,4 +1,4 @@
-CAMPEON=Argentina
+|CAMPEON=Argentina
 EQUIPO=Argentina
 EQUIPO=Francia
 EQUIPO=Brasil
@@ -6,3 +6,8 @@ EQUIPO=Uruguay
 EQUIPO=Italia
 
 
+
+EQUIPO=argentina
+--- PARTIDO=polonia 45 45 sacachispas 23 ---
+--- El resultado del partido fue =hola 1 chau 2 ---
+--- El resultado del partido fue =hola 12 chuy 23 ---
