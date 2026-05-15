@@ -5,7 +5,7 @@ listaEquipos() {
 }
 
 campeon() {
-	codigo
+	grep "CAMPEON" informacion | cut -d "=" -f 2
 }
 
 registrarEquipo() {
@@ -55,7 +55,7 @@ do
 		3) registrarEquipo ;;
 		4) registrarPartido ;;
 		5) historial ;;
-		6) busacarEquipo ;;
+		6) buscarEquipo ;;
 		7) cantidadPartidos ;;
 		8) salir ;;
 		*) echo "Opcion invalida" ;;
