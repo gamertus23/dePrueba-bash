@@ -2,6 +2,8 @@
 
 ARCHIVO="informacion"
 
+partidos=$(grep "PARTIDO" $ARCHIVO)
+
 listaEquipos() {
 	grep "EQUIPO" $ARCHIVO | cut -d "=" -f 2
 }
@@ -55,7 +57,11 @@ registrarPartido() {
 }
 
 historial() {
-	codigo
+	grep "PARTIDO" $ARCHIVO | cut -d "=" -f 2
+	if [ -z "$partidos" ]; then
+		echo "No hay partidos registrados"
+	return
+	fi
 }
 
 buscarEquipo() {
