@@ -1,19 +1,57 @@
 #!/bin/bash
 
+ARCHIVO="informacion"
+
 listaEquipos() {
-	grep "EQUIPO" informacion | cut -d "=" -f 2
+	grep "EQUIPO" $ARCHIVO | cut -d "=" -f 2
 }
 
 campeon() {
-	grep "CAMPEON" informacion | cut -d "=" -f 2
+	grep "CAMPEON" $ARCHIVO | cut -d "=" -f 2
 }
 
 registrarEquipo() {
-	codigo
+    echo "Ingrese un nuevo equipo"
+    read nombreEquipo
+    if [ -z "$nombreEquipo" ]; then
+        echo "El nombre no puede estar vacio"
+        return
+    fi
+	echo "EQUIPO=$nombreEquipo" >> $ARCHIVO
 }
 
+
 registrarPartido() {
-	codigo
+	echo "Ingrese equipo 1"
+	read equipo1
+	if [ -z "$equipo1" ]; then
+		echo "El nombre no puede estar vacio"
+		return
+	fi
+
+	echo "Ingrese equipo 2"
+	read equipo2
+
+	if [ -z "$equipo2" ]; then
+		echo "El nombre no puede estar vacio"
+		return
+	fi
+
+	echo "Ingrese goles equipo 1"
+	read goles1
+	if [ -z "$goles1" ]; then
+		echo "El nombre no puede estar vacio"
+		return
+	fi
+
+	echo "Ingrese goles equipo 2"
+	read goles2
+	if [ -z "$goles2" ]; then
+		echo "El nombre no puede estar vacio"
+		return
+	fi
+
+	echo "PARTIDO=$equipo1 $goles1 $equipo2 $goles2" >> $ARCHIVO
 }
 
 historial() {
