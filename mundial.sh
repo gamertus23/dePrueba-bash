@@ -1,7 +1,7 @@
 #!/bin/bash
 
 listaEquipos() {
-	codigo
+	grep "EQUIPO" informacion | cut -d "=" -f 2
 }
 
 campeon() {
