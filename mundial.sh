@@ -2,7 +2,6 @@
 
 ARCHIVO="informacion"
 
-partidos=$(grep "PARTIDO" $ARCHIVO)
 
 listaEquipos() {
 	grep "EQUIPO" $ARCHIVO | cut -d "=" -f 2
@@ -13,12 +12,18 @@ campeon() {
 }
 
 registrarEquipo() {
-    echo "Ingrese un nuevo equipo"
-    read nombreEquipo
-    if [ -z "$nombreEquipo" ]; then
-        echo "El nombre no puede estar vacio"
-        return
-    fi
+	equipos=$(grep "EQUIPO" $ARCHIVO | wc -l)
+		if [ "$equipos" -gt 15 ]; then
+ 		echo "El limite es 15 equipos" 
+ 		return
+	fi
+
+	echo "Ingrese un nuevo equipo"
+    	read nombreEquipo
+    	if [ -z "$nombreEquipo" ]; then
+        	echo "El nombre no puede estar vacio"
+        	return
+    	fi
 	echo "EQUIPO=$nombreEquipo" >> $ARCHIVO
 }
 
