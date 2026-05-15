@@ -13,7 +13,7 @@ campeon() {
 
 registrarEquipo() {
 	equipos=$(grep "EQUIPO" $ARCHIVO | wc -l)
-		if [ "$equipos" -gt 15 ]; then
+		if [ "$equipos" -ge 15 ]; then
  		echo "El limite es 15 equipos" 
  		return
 	fi
@@ -46,14 +46,14 @@ registrarPartido() {
 	echo "Ingrese goles equipo 1"
 	read goles1
 	if [ -z "$goles1" ]; then
-		echo "El nombre no puede estar vacio"
+		echo "El campo no puede estar vacio"
 		return
 	fi
 
 	echo "Ingrese goles equipo 2"
 	read goles2
 	if [ -z "$goles2" ]; then
-		echo "El nombre no puede estar vacio"
+		echo "El campo no puede estar vacio"
 		return
 	fi
 
@@ -68,7 +68,7 @@ historial() {
 		return
 	fi
 
-	echo $partidos
+	echo "$partidos"
 }
 
 buscarEquipo() {
