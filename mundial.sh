@@ -85,7 +85,8 @@ buscarEquipo() {
 }
 
 cantidadPartidos() {
-	codigo
+	echo "Cantidad de partidos jugados:"
+	grep "PARTIDO" $ARCHIVO | wc -l
 }
 
 salir() {
