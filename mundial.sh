@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#Renzo Amestoy - 361801 / Santiago Rodriguez - 000000
 ARCHIVO="informacion"
 
 
